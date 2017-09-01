@@ -41,6 +41,9 @@ extension ViewController: UITableViewDataSource {
         cell.indexPath = indexPath
         cell.delegate = self
 
+        cell.upvoteButton.titleLabel?.text = String(posts[indexPath.row].upvotes)
+        cell.downvoteButton.titleLabel?.text = String(posts[indexPath.row].downvotes)
+
         return cell
     }
 }
@@ -52,10 +55,12 @@ extension ViewController: UITableViewDelegate {
 // MARK:- Actions
 extension ViewController: PostCellDelegate {
     func upvote(indexPath: IndexPath) {
-
+        posts[indexPath.row].changeUpvoteCount()
+        postTableView.reloadRows(at: [indexPath], with: .none)
     }
 
     func downvote(indexPath: IndexPath) {
-        
+        posts[indexPath.row].changeDownvoteCount()
+        postTableView.reloadRows(at: [indexPath], with: .none)
     }
 }
