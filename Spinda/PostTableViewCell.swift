@@ -8,19 +8,24 @@
 
 import UIKit
 
+protocol PostCellDelegate {
+    func upvote()
+    func downvote()
+}
+
 class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var topicLabel: UILabel!
     @IBOutlet weak var upvoteButton: UIButton!
     @IBOutlet weak var downvoteButton: UIButton!
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    var delegate: PostCellDelegate!
+
+    @IBAction func upvote(_ sender: UIButton) {
+        delegate.upvote()
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @IBAction func downvote(_ sender: UIButton) {
+        delegate.downvote()
     }
 }
+

@@ -28,10 +28,6 @@ class ViewController: UIViewController {
         posts.append(post3)
         posts.append(post4)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
 }
 
 extension ViewController: UITableViewDataSource {
@@ -42,6 +38,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PostTableViewCell
         cell.topicLabel.text = posts[indexPath.row].topic
+        cell.delegate = self
 
         return cell
     }
@@ -49,4 +46,15 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
 
+}
+
+// MARK:- Actions
+extension ViewController: PostCellDelegate {
+    func upvote() {
+        print(#function)
+    }
+
+    func downvote() {
+        print(#function)
+    }
 }
