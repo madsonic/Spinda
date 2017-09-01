@@ -38,6 +38,7 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PostTableViewCell
         cell.topicLabel.text = posts[indexPath.row].topic
+        cell.indexPath = indexPath
         cell.delegate = self
 
         return cell
@@ -50,11 +51,11 @@ extension ViewController: UITableViewDelegate {
 
 // MARK:- Actions
 extension ViewController: PostCellDelegate {
-    func upvote() {
-        print(#function)
+    func upvote(indexPath: IndexPath) {
+
     }
 
-    func downvote() {
-        print(#function)
+    func downvote(indexPath: IndexPath) {
+        
     }
 }

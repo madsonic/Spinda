@@ -9,8 +9,8 @@
 import UIKit
 
 protocol PostCellDelegate {
-    func upvote()
-    func downvote()
+    func upvote(indexPath: IndexPath)
+    func downvote(indexPath: IndexPath)
 }
 
 class PostTableViewCell: UITableViewCell {
@@ -18,14 +18,15 @@ class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var upvoteButton: UIButton!
     @IBOutlet weak var downvoteButton: UIButton!
 
+    var indexPath: IndexPath!
     var delegate: PostCellDelegate!
 
     @IBAction func upvote(_ sender: UIButton) {
-        delegate.upvote()
+        delegate.upvote(indexPath: indexPath)
     }
 
     @IBAction func downvote(_ sender: UIButton) {
-        delegate.downvote()
+        delegate.downvote(indexPath: indexPath)
     }
 }
 
