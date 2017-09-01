@@ -32,26 +32,20 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="28m-RR-Rre">
                                 <rect key="frame" x="0.0" y="98.5" width="0.0" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ueh-PN-BTA">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ueh-PN-BTA" userLabel="upvote button">
                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
                                         <color key="backgroundColor" red="0.090196078430000007" green="0.70196078429999997" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Upvote">
+                                        <state key="normal" title="0">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
-                                        <connections>
-                                            <action selector="upvote:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="8bY-Tl-Kr7"/>
-                                        </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj7-cO-2Y0">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jj7-cO-2Y0" userLabel="downvote button">
                                         <rect key="frame" x="0.0" y="0.0" width="0.0" height="40"/>
                                         <color key="backgroundColor" red="0.090196078430000007" green="0.70196078429999997" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="Downvote">
+                                        <state key="normal" title="0">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
-                                        <connections>
-                                            <action selector="downvote:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7pf-SL-ONZ"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -70,7 +64,9 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="downvoteButton" destination="jj7-cO-2Y0" id="QFZ-os-Fbl"/>
                 <outlet property="topicLabel" destination="aWr-QJ-ex3" id="PqF-r4-ruC"/>
+                <outlet property="upvoteButton" destination="Ueh-PN-BTA" id="I9N-W6-ehB"/>
             </connections>
             <point key="canvasLocation" x="35" y="-6.5"/>
         </tableViewCell>

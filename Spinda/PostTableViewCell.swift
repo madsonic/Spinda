@@ -10,6 +10,8 @@ import UIKit
 
 class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var topicLabel: UILabel!
+    @IBOutlet weak var upvoteButton: UIButton!
+    @IBOutlet weak var downvoteButton: UIButton!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,12 +22,5 @@ class PostTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
-    }
-    
-    @IBAction func upvote(_ sender: Any) {
-        print("upvote tapped")
-    }
-    @IBAction func downvote(_ sender: Any) {
-        print("downvote tapped")
     }
 }
