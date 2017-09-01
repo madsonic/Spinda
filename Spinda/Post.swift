@@ -8,6 +8,10 @@
 
 struct Post {
     let topic: String
-    var upvote: Int
-    var downvote: Int
+    var upvote: Int = 0
+    var downvote: Int = 0
+
+    init(topic: String) {
+        self.topic = topic
+    }
 }
