@@ -28,6 +28,9 @@ class ViewController: UIViewController {
         posts.append(post3)
         posts.append(post4)
     }
+    @IBAction func CreateNewPost(_ sender: UIBarButtonItem) {
+        print("create post")
+    }
 }
 
 extension ViewController: UITableViewDataSource {
