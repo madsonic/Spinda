@@ -8,10 +8,18 @@
 
 struct Post {
     let topic: String
-    var upvote: Int = 0
-    var downvote: Int = 0
+    private(set) var upvotes: Int = 0
+    private(set) var downvotes: Int = 0
 
     init(topic: String) {
         self.topic = topic
+    }
+
+    mutating func changeUpvoteCount(by count: Int = 1) {
+        upvotes += count
+    }
+
+    mutating func changeDownvoteCount(by count: Int = 1) {
+        downvotes += count
     }
 }
