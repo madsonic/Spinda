@@ -22,4 +22,10 @@ class PostTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func upvote(_ sender: Any) {
+        print("upvote tapped")
+    }
+    @IBAction func downvote(_ sender: Any) {
+        print("downvote tapped")
+    }
 }
