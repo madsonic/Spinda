@@ -52,7 +52,7 @@ extension ViewController: UITableViewDelegate {
 
 }
 
-// MARK:- Actions
+// MARK:- PostCellDelegate
 extension ViewController: PostCellDelegate {
     func upvote(indexPath: IndexPath) {
         posts[indexPath.row].changeUpvoteCount()
