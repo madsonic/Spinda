@@ -38,7 +38,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbP-lL-6p7" userLabel="Create Post Modal">
-                                <rect key="frame" x="37.5" y="165.5" width="300" height="200"/>
+                                <rect key="frame" x="-462.5" y="165.5" width="300" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IKb-on-y3z">
                                         <rect key="frame" x="10" y="10" width="280" height="190"/>
@@ -94,7 +94,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" red="0.090196078430000007" green="0.70196078429999997" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="FHi-Of-KtR"/>
                                     <constraint firstAttribute="trailing" secondItem="IKb-on-y3z" secondAttribute="trailing" constant="10" id="JJr-Ht-Vj5"/>
@@ -112,7 +112,7 @@
                             <constraint firstItem="NPm-Kt-2yy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LaJ-LV-XDh"/>
                             <constraint firstItem="NPm-Kt-2yy" firstAttribute="topMargin" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Ou5-WJ-OEh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NPm-Kt-2yy" secondAttribute="trailing" id="SdN-Rh-hZn"/>
-                            <constraint firstItem="nbP-lL-6p7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YcB-x3-QO8"/>
+                            <constraint firstItem="nbP-lL-6p7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-500" id="YcB-x3-QO8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -124,6 +124,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="createPostModalView" destination="nbP-lL-6p7" id="vfe-Kt-k4E"/>
                         <outlet property="modalXConstraint" destination="YcB-x3-QO8" id="QSI-BF-AQg"/>
                         <outlet property="postTableView" destination="NPm-Kt-2yy" id="wN0-ga-3mr"/>
                         <outlet property="topicView" destination="MWc-bc-LkF" id="pC0-7E-CeC"/>

@@ -16,6 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var postTableView: UITableView!
     @IBOutlet weak var modalXConstraint: NSLayoutConstraint!
     @IBOutlet weak var topicView: UITextView!
+    @IBOutlet weak var createPostModalView: UIView!
 
     var posts = [Post]()
 
@@ -31,6 +32,8 @@ class ViewController: UIViewController {
         posts.append(post2)
         posts.append(post3)
         posts.append(post4)
+
+        setupCreatePostModal()
     }
 
     @IBAction func showCreatePostModal(_ sender: UIBarButtonItem) {
@@ -67,6 +70,10 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
+    }
+
+    private func setupCreatePostModal() {
+        createPostModalView.layer.cornerRadius = 10
     }
 }
 
