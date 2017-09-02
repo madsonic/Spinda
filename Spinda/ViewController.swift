@@ -66,6 +66,16 @@ class ViewController: UIViewController {
         topicView.text = ""
     }
 
+    @IBAction func upvote(_ sender: UIButton) {
+        posts[sender.tag].changeUpvoteCount()
+        sender.setTitle(String(posts[sender.tag].upvotes), for: .normal)
+    }
+
+    @IBAction func downvote(_ sender: UIButton) {
+        posts[sender.tag].changeDownvoteCount()
+        sender.setTitle(String(posts[sender.tag].upvotes), for: .normal)
+    }
+
     private func closeCreatePostModal() {
         modalXConstraint.constant = initialModalXPosition
 
@@ -87,11 +97,11 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PostTableViewCell
         cell.topic.text = posts[indexPath.row].topic
-        cell.indexPath = indexPath
-        cell.delegate = self
+        cell.upvoteButton.tag = indexPath.row
+        cell.downvoteButton.tag = indexPath.row
 
-//        cell.upvoteButton.titleLabel?.text = String(posts[indexPath.row].upvotes)
-//        cell.downvoteButton.titleLabel?.text = String(posts[indexPath.row].downvotes)
+        cell.upvoteButton.setTitle(String(posts[indexPath.row].upvotes), for: .normal)
+        cell.downvoteButton.setTitle(String(posts[indexPath.row].downvotes), for: .normal)
 
         return cell
     }
@@ -99,19 +109,6 @@ extension ViewController: UITableViewDataSource {
 
 extension ViewController: UITableViewDelegate {
 
-}
-
-// MARK:- PostCellDelegate
-extension ViewController: PostCellDelegate {
-    func upvote(indexPath: IndexPath) {
-        posts[indexPath.row].changeUpvoteCount()
-        postTableView.reloadRows(at: [indexPath], with: .none)
-    }
-
-    func downvote(indexPath: IndexPath) {
-        posts[indexPath.row].changeDownvoteCount()
-        postTableView.reloadRows(at: [indexPath], with: .none)
-    }
 }
 
 // MARK:- TextViewDelegate

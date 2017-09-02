@@ -8,16 +8,8 @@
 
 import UIKit
 
-protocol PostCellDelegate {
-    func upvote(indexPath: IndexPath)
-    func downvote(indexPath: IndexPath)
-}
-
 class PostTableViewCell: UITableViewCell {
     @IBOutlet weak var topic: UILabel!
-    @IBOutlet weak var upvoteButton: UIView!
-    @IBOutlet weak var downvoteButton: UIView!
-
-    var indexPath: IndexPath!
-    var delegate: PostCellDelegate!
+    @IBOutlet weak var upvoteButton: UIButton!
+    @IBOutlet weak var downvoteButton: UIButton!
 }
