@@ -24,7 +24,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        postTableView.register(UINib(nibName: "PostTableViewCell", bundle: nil), forCellReuseIdentifier: cellIdentifier)
+
         let post1 = Post(topic: "1")
         let post2 = Post(topic: "topic 2 g0bq9fCKfhYbeAAIzXubvZnemCgsn6Xjs3tPiVtmp8nDTLgC3vZzVnkiMCUVOMSDf4raqghyClrbuSAyLDCZbVK6b2c61TPX3l0tevNeIKIyNiKhJZl3SB5tOveas3mhiIvczuvjrdPgV3NJRKzr6My1HyEmrdbM8sOJO6w13pwJMzwdPJWatBDj76MlxILWWptzTN3pKA1LnDeJUBTJFE3xE0nruhUHILoPIlaYm4cXyIq2O2jEjcgqPojL7wy")
         let post3 = Post(topic: "topic 3 g0bq9fCKfhYb")
@@ -86,12 +86,12 @@ extension ViewController: UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as! PostTableViewCell
-        cell.topicLabel.text = posts[indexPath.row].topic
+        cell.topic.text = posts[indexPath.row].topic
         cell.indexPath = indexPath
         cell.delegate = self
 
-        cell.upvoteButton.titleLabel?.text = String(posts[indexPath.row].upvotes)
-        cell.downvoteButton.titleLabel?.text = String(posts[indexPath.row].downvotes)
+//        cell.upvoteButton.titleLabel?.text = String(posts[indexPath.row].upvotes)
+//        cell.downvoteButton.titleLabel?.text = String(posts[indexPath.row].downvotes)
 
         return cell
     }

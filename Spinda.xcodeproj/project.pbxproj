@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		741D008E1F5A94A100540677 /* VoteButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = 741D008D1F5A94A100540677 /* VoteButton.xib */; };
+		741D00901F5AA56000540677 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D008F1F5AA56000540677 /* PostTableViewCell.swift */; };
 		74B0C1851F5952AA00DAE920 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1841F5952AA00DAE920 /* AppDelegate.swift */; };
 		74B0C1871F5952AA00DAE920 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1861F5952AA00DAE920 /* ViewController.swift */; };
 		74B0C18A1F5952AA00DAE920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B0C1881F5952AA00DAE920 /* Main.storyboard */; };
@@ -16,8 +16,6 @@
 		74B0C19A1F5952AA00DAE920 /* SpindaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1991F5952AA00DAE920 /* SpindaTests.swift */; };
 		74B0C1A51F5952AA00DAE920 /* SpindaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1A41F5952AA00DAE920 /* SpindaUITests.swift */; };
 		74B0C1B31F59570D00DAE920 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1B21F59570D00DAE920 /* Post.swift */; };
-		74B0C1BC1F59619600DAE920 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1BA1F59619600DAE920 /* PostTableViewCell.swift */; };
-		74B0C1BD1F59619600DAE920 /* PostTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 74B0C1BB1F59619600DAE920 /* PostTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		741D008D1F5A94A100540677 /* VoteButton.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VoteButton.xib; sourceTree = "<group>"; };
+		741D008F1F5AA56000540677 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 		74B0C1811F5952AA00DAE920 /* Spinda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spinda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B0C1841F5952AA00DAE920 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74B0C1861F5952AA00DAE920 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,8 +51,6 @@
 		74B0C1A41F5952AA00DAE920 /* SpindaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpindaUITests.swift; sourceTree = "<group>"; };
 		74B0C1A61F5952AA00DAE920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74B0C1B21F59570D00DAE920 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
-		74B0C1BA1F59619600DAE920 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
-		74B0C1BB1F59619600DAE920 /* PostTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PostTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,11 +103,9 @@
 			children = (
 				74B0C1841F5952AA00DAE920 /* AppDelegate.swift */,
 				74B0C1861F5952AA00DAE920 /* ViewController.swift */,
-				74B0C1BA1F59619600DAE920 /* PostTableViewCell.swift */,
-				74B0C1BB1F59619600DAE920 /* PostTableViewCell.xib */,
-				741D008D1F5A94A100540677 /* VoteButton.xib */,
 				74B0C1B21F59570D00DAE920 /* Post.swift */,
 				74B0C1881F5952AA00DAE920 /* Main.storyboard */,
+				741D008F1F5AA56000540677 /* PostTableViewCell.swift */,
 				74B0C18D1F5952AA00DAE920 /* LaunchScreen.storyboard */,
 				74B0C18B1F5952AA00DAE920 /* Assets.xcassets */,
 				74B0C1901F5952AA00DAE920 /* Info.plist */,
@@ -244,8 +238,6 @@
 				74B0C18F1F5952AA00DAE920 /* LaunchScreen.storyboard in Resources */,
 				74B0C18C1F5952AA00DAE920 /* Assets.xcassets in Resources */,
 				74B0C18A1F5952AA00DAE920 /* Main.storyboard in Resources */,
-				74B0C1BD1F59619600DAE920 /* PostTableViewCell.xib in Resources */,
-				741D008E1F5A94A100540677 /* VoteButton.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,7 +265,7 @@
 				74B0C1B31F59570D00DAE920 /* Post.swift in Sources */,
 				74B0C1871F5952AA00DAE920 /* ViewController.swift in Sources */,
 				74B0C1851F5952AA00DAE920 /* AppDelegate.swift in Sources */,
-				74B0C1BC1F59619600DAE920 /* PostTableViewCell.swift in Sources */,
+				741D00901F5AA56000540677 /* PostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
