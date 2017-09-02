@@ -10,8 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
     let cellIdentifier = "topicCellIdentifier"
+    let initialModalXPosition: CGFloat = -500
+    let finalModalXPosition: CGFloat = 0
 
     @IBOutlet weak var postTableView: UITableView!
+    @IBOutlet weak var modalXConstraint: NSLayoutConstraint!
 
     var posts = [Post]()
 
@@ -28,8 +31,20 @@ class ViewController: UIViewController {
         posts.append(post3)
         posts.append(post4)
     }
-    @IBAction func CreateNewPost(_ sender: UIBarButtonItem) {
-        print("create post")
+
+    @IBAction func showCreatePostModal(_ sender: UIBarButtonItem) {
+        modalXConstraint.constant = finalModalXPosition
+
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
+
+    }
+    @IBAction func createPost(_ sender: UIButton) {
+
+    }
+    @IBAction func cancelCreatePost(_ sender: UIButton) {
+        
     }
 }
 

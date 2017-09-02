@@ -37,24 +37,94 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="chl-m6-X6e"/>
                                 </connections>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbP-lL-6p7" userLabel="Create Post Modal">
+                                <rect key="frame" x="37.5" y="165.5" width="300" height="200"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IKb-on-y3z">
+                                        <rect key="frame" x="10" y="10" width="280" height="190"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Topic" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lXw-ZR-CoZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="280" height="35"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="Wd1-v7-cGJ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWc-bc-LkF">
+                                                <rect key="frame" x="0.0" y="35" width="280" height="120"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cMh-fQ-YEB">
+                                                <rect key="frame" x="0.0" y="155" width="280" height="35"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f2Z-1H-LmZ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="140" height="35"/>
+                                                        <state key="normal" title="Create">
+                                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="createPost:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Mzx-ac-bhi"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSP-CI-lSf">
+                                                        <rect key="frame" x="140" y="0.0" width="140" height="35"/>
+                                                        <state key="normal">
+                                                            <attributedString key="attributedTitle">
+                                                                <fragment content="Cancel">
+                                                                    <attributes>
+                                                                        <color key="NSColor" red="0.96466529187817263" green="0.13089837948164884" blue="0.2837798404689183" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <font key="NSFont" metaFont="system" size="15"/>
+                                                                    </attributes>
+                                                                </fragment>
+                                                            </attributedString>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="cancelCreatePost:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gMK-Na-vhG"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="35" id="Rlh-gK-Wag"/>
+                                                </constraints>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.090196078430000007" green="0.70196078429999997" blue="0.86666666670000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="FHi-Of-KtR"/>
+                                    <constraint firstAttribute="trailing" secondItem="IKb-on-y3z" secondAttribute="trailing" constant="10" id="JJr-Ht-Vj5"/>
+                                    <constraint firstItem="IKb-on-y3z" firstAttribute="leading" secondItem="nbP-lL-6p7" secondAttribute="leading" constant="10" id="Tsq-s9-UYJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="IKb-on-y3z" secondAttribute="bottom" id="ekL-bB-8sU"/>
+                                    <constraint firstAttribute="height" constant="200" id="hjF-8w-f5G"/>
+                                    <constraint firstItem="IKb-on-y3z" firstAttribute="top" secondItem="nbP-lL-6p7" secondAttribute="top" constant="10" id="wXN-ov-7Ta"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="nbP-lL-6p7" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" constant="-100" id="2vE-kW-yr0"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="NPm-Kt-2yy" secondAttribute="bottom" id="2vj-U0-Zqc"/>
                             <constraint firstItem="NPm-Kt-2yy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LaJ-LV-XDh"/>
                             <constraint firstItem="NPm-Kt-2yy" firstAttribute="topMargin" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Ou5-WJ-OEh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NPm-Kt-2yy" secondAttribute="trailing" id="SdN-Rh-hZn"/>
+                            <constraint firstItem="nbP-lL-6p7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YcB-x3-QO8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" title="Spinda" id="IF3-1w-kUO">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2s6-6f-jcI">
                             <connections>
-                                <action selector="CreateNewPost:" destination="BYZ-38-t0r" id="Jhj-25-IWu"/>
+                                <action selector="showCreatePostModal:" destination="BYZ-38-t0r" id="sdP-hV-6b2"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="modalXConstraint" destination="YcB-x3-QO8" id="QSI-BF-AQg"/>
                         <outlet property="postTableView" destination="NPm-Kt-2yy" id="wN0-ga-3mr"/>
                     </connections>
                 </viewController>
