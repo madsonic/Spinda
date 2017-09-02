@@ -126,6 +126,7 @@
                     <connections>
                         <outlet property="modalXConstraint" destination="YcB-x3-QO8" id="QSI-BF-AQg"/>
                         <outlet property="postTableView" destination="NPm-Kt-2yy" id="wN0-ga-3mr"/>
+                        <outlet property="topicView" destination="MWc-bc-LkF" id="pC0-7E-CeC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

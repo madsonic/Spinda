@@ -15,6 +15,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var postTableView: UITableView!
     @IBOutlet weak var modalXConstraint: NSLayoutConstraint!
+    @IBOutlet weak var topicView: UITextView!
 
     var posts = [Post]()
 
@@ -40,11 +41,32 @@ class ViewController: UIViewController {
         }
 
     }
-    @IBAction func createPost(_ sender: UIButton) {
 
+    @IBAction func createPost(_ sender: UIButton) {
+        // close popup
+        // add to data structure
+        guard let topic = topicView.text, !topicView.text.isEmpty else {
+            return
+        }
+
+        closeCreatePostModal()
+        let post = Post(topic: topic)
+        posts.append(post)
+        postTableView.reloadData()
+        topicView.text = ""
     }
+
     @IBAction func cancelCreatePost(_ sender: UIButton) {
-        
+        closeCreatePostModal()
+        topicView.text = ""
+    }
+
+    private func closeCreatePostModal() {
+        modalXConstraint.constant = initialModalXPosition
+
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
 
