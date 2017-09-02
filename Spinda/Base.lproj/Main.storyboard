@@ -39,7 +39,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbP-lL-6p7" userLabel="Create Post Modal">
-                                <rect key="frame" x="37.5" y="165.5" width="300" height="200"/>
+                                <rect key="frame" x="-462.5" y="165.5" width="300" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IKb-on-y3z">
                                         <rect key="frame" x="10" y="10" width="280" height="190"/>
@@ -123,7 +123,7 @@
                             <constraint firstItem="NPm-Kt-2yy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LaJ-LV-XDh"/>
                             <constraint firstItem="NPm-Kt-2yy" firstAttribute="topMargin" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Ou5-WJ-OEh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NPm-Kt-2yy" secondAttribute="trailing" id="SdN-Rh-hZn"/>
-                            <constraint firstItem="nbP-lL-6p7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YcB-x3-QO8"/>
+                            <constraint firstItem="nbP-lL-6p7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-500" id="YcB-x3-QO8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
