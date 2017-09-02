@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     let cellIdentifier = "topicCellIdentifier"
     let initialModalXPosition: CGFloat = -500
     let finalModalXPosition: CGFloat = 0
+    let maxCharCount = 100
 
     @IBOutlet weak var postTableView: UITableView!
     @IBOutlet weak var modalXConstraint: NSLayoutConstraint!
@@ -116,7 +117,23 @@ extension ViewController: PostCellDelegate {
 // MARK:- TextViewDelegate
 extension ViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
-        let charCount = textView.text.count
-        characterCount.text = "\(charCount)/255"
+        updateCharCount(textView: textView)
+    }
+
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        let modifiedString = textView.text + text
+
+        guard modifiedString.count > maxCharCount else {
+            return true
+        }
+
+        textView.text = String(modifiedString.prefix(maxCharCount))
+        updateCharCount(textView: textView)
+
+        return false
+    }
+
+    private func updateCharCount(textView: UITextView) {
+        characterCount.text = "\(textView.text.count)/\(maxCharCount)"
     }
 }
