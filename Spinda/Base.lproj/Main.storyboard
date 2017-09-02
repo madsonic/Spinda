@@ -39,7 +39,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nbP-lL-6p7" userLabel="Create Post Modal">
-                                <rect key="frame" x="-462.5" y="165.5" width="300" height="200"/>
+                                <rect key="frame" x="37.5" y="165.5" width="300" height="200"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="IKb-on-y3z">
                                         <rect key="frame" x="10" y="10" width="280" height="190"/>
@@ -54,11 +54,21 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MWc-bc-LkF">
-                                                <rect key="frame" x="0.0" y="35" width="280" height="120"/>
+                                                <rect key="frame" x="0.0" y="35" width="280" height="108"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Kme-nP-jNo"/>
+                                                </connections>
                                             </textView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0/255" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f3F-JJ-CLT" userLabel="char count">
+                                                <rect key="frame" x="0.0" y="143" width="280" height="12"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="cMh-fQ-YEB">
                                                 <rect key="frame" x="0.0" y="155" width="280" height="35"/>
                                                 <subviews>
@@ -113,7 +123,7 @@
                             <constraint firstItem="NPm-Kt-2yy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="LaJ-LV-XDh"/>
                             <constraint firstItem="NPm-Kt-2yy" firstAttribute="topMargin" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="Ou5-WJ-OEh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="NPm-Kt-2yy" secondAttribute="trailing" id="SdN-Rh-hZn"/>
-                            <constraint firstItem="nbP-lL-6p7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" constant="-500" id="YcB-x3-QO8"/>
+                            <constraint firstItem="nbP-lL-6p7" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="YcB-x3-QO8"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
@@ -125,6 +135,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="characterCount" destination="f3F-JJ-CLT" id="dTX-bO-6ke"/>
                         <outlet property="createPostModalView" destination="nbP-lL-6p7" id="vfe-Kt-k4E"/>
                         <outlet property="modalXConstraint" destination="YcB-x3-QO8" id="QSI-BF-AQg"/>
                         <outlet property="postTableView" destination="NPm-Kt-2yy" id="wN0-ga-3mr"/>
@@ -133,7 +144,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="700" y="99"/>
+            <point key="canvasLocation" x="700" y="98.50074962518741"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u2H-Yk-Wgw">

@@ -17,6 +17,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var modalXConstraint: NSLayoutConstraint!
     @IBOutlet weak var topicView: UITextView!
     @IBOutlet weak var createPostModalView: UIView!
+    @IBOutlet weak var characterCount: UILabel!
 
     var posts = [Post]()
 
@@ -109,5 +110,13 @@ extension ViewController: PostCellDelegate {
     func downvote(indexPath: IndexPath) {
         posts[indexPath.row].changeDownvoteCount()
         postTableView.reloadRows(at: [indexPath], with: .none)
+    }
+}
+
+// MARK:- TextViewDelegate
+extension ViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let charCount = textView.text.count
+        characterCount.text = "\(charCount)/255"
     }
 }
