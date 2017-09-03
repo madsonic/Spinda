@@ -38,7 +38,7 @@ class SpindaCreatePostsUITests: XCTestCase {
         tapAddButton()
         let modal = XCUIApplication().otherElements[createPostModalIdentifer]
 
-        XCTAssertTrue(wait(for: modal, condition: "isHittable"), "Create post modal should show on create post")
+        XCTAssertTrue(wait(for: modal, condition: "isHittable") == .completed, "Create post modal should show on create post")
     }
 
 
@@ -51,9 +51,9 @@ class SpindaCreatePostsUITests: XCTestCase {
     ///   - timeout: time to wait. Defaults to 1
     /// - Returns: true if `Result` is `.completed`
     private func wait(for element: XCUIElement, condition: String,
-                      toBe expectation: Bool = true, forSeconds timeout: TimeInterval = 1) -> Bool {
+                      toBe expectation: Bool = true, forSeconds timeout: TimeInterval = 1) -> XCTWaiter.Result {
         let expectation = XCTKVOExpectation(keyPath: condition, object: element, expectedValue: expectation)
-        return XCTWaiter().wait(for: [expectation], timeout: timeout) == .completed
+        return XCTWaiter().wait(for: [expectation], timeout: timeout)
     }
 
     private func tapAddButton() {
