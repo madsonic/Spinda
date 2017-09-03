@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     let cellIdentifier = "topicCellIdentifier"
     let initialModalXPosition: CGFloat = -500
     let finalModalXPosition: CGFloat = 0
-    let maxCharCount = 100
+    let maxCharCount = 255
     let maxPostsDisplayed = 20
 
     @IBOutlet weak var postTableView: UITableView!
