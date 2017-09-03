@@ -28,9 +28,19 @@ class SpindaCreatePostsUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    /// Wait for some duration for element to meet given condition
+    /// Helpful in async testing e.g. wait for ui element animation to complete before proceeding
+    /// - Parameters:
+    ///   - element: element to wait for
+    ///   - condition: condition element holds. Possible values include `isHittable`, `exists`
+    ///   - expectation: expectation of condition. Defaults to true
+    ///   - timeout: time to wait. Defaults to 1
+    /// - Returns: true if `Result` is `.completed`
+    private func wait(for element: XCUIElement, condition: String,
+                      toBe expectation: Bool = true, forSeconds timeout: TimeInterval = 1) -> Bool {
+        let expectation = XCTKVOExpectation(keyPath: condition, object: element, expectedValue: expectation)
+        return XCTWaiter().wait(for: [expectation], timeout: timeout) == .completed
     }
     
 }
