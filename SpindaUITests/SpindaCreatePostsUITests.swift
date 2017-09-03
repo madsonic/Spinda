@@ -35,11 +35,8 @@ class SpindaCreatePostsUITests: XCTestCase {
     }
 
     func testCreatePostModalItShouldBeShownOnAdd() {
-        let app = XCUIApplication()
-        let addButton = app.navigationBars.buttons[createPostButtonIdentifer]
-        addButton.tap()
-
-        let modal = app.otherElements[createPostModalIdentifer]
+        tapAddButton()
+        let modal = XCUIApplication().otherElements[createPostModalIdentifer]
 
         XCTAssertTrue(wait(for: modal, condition: "isHittable"), "Create post modal should show on create post")
     }
@@ -58,5 +55,10 @@ class SpindaCreatePostsUITests: XCTestCase {
         let expectation = XCTKVOExpectation(keyPath: condition, object: element, expectedValue: expectation)
         return XCTWaiter().wait(for: [expectation], timeout: timeout) == .completed
     }
-    
+
+    private func tapAddButton() {
+        let app = XCUIApplication()
+        let addButton = app.navigationBars.buttons[createPostButtonIdentifer]
+        addButton.tap()
+    }
 }
