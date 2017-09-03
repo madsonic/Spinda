@@ -8,13 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		741D00901F5AA56000540677 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 741D008F1F5AA56000540677 /* PostTableViewCell.swift */; };
+		74839A081F5BB7F300489965 /* SpindaCreatePostsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74839A071F5BB7F300489965 /* SpindaCreatePostsUITests.swift */; };
 		74B0C1851F5952AA00DAE920 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1841F5952AA00DAE920 /* AppDelegate.swift */; };
 		74B0C1871F5952AA00DAE920 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1861F5952AA00DAE920 /* ViewController.swift */; };
 		74B0C18A1F5952AA00DAE920 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B0C1881F5952AA00DAE920 /* Main.storyboard */; };
 		74B0C18C1F5952AA00DAE920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 74B0C18B1F5952AA00DAE920 /* Assets.xcassets */; };
 		74B0C18F1F5952AA00DAE920 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 74B0C18D1F5952AA00DAE920 /* LaunchScreen.storyboard */; };
 		74B0C19A1F5952AA00DAE920 /* SpindaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1991F5952AA00DAE920 /* SpindaTests.swift */; };
-		74B0C1A51F5952AA00DAE920 /* SpindaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1A41F5952AA00DAE920 /* SpindaUITests.swift */; };
+		74B0C1A51F5952AA00DAE920 /* SpindaVoteButtonsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1A41F5952AA00DAE920 /* SpindaVoteButtonsUITests.swift */; };
 		74B0C1B31F59570D00DAE920 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74B0C1B21F59570D00DAE920 /* Post.swift */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		741D008F1F5AA56000540677 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		74839A071F5BB7F300489965 /* SpindaCreatePostsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpindaCreatePostsUITests.swift; sourceTree = "<group>"; };
 		74B0C1811F5952AA00DAE920 /* Spinda.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Spinda.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		74B0C1841F5952AA00DAE920 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		74B0C1861F5952AA00DAE920 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -48,7 +50,7 @@
 		74B0C1991F5952AA00DAE920 /* SpindaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpindaTests.swift; sourceTree = "<group>"; };
 		74B0C19B1F5952AA00DAE920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74B0C1A01F5952AA00DAE920 /* SpindaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpindaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		74B0C1A41F5952AA00DAE920 /* SpindaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpindaUITests.swift; sourceTree = "<group>"; };
+		74B0C1A41F5952AA00DAE920 /* SpindaVoteButtonsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpindaVoteButtonsUITests.swift; sourceTree = "<group>"; };
 		74B0C1A61F5952AA00DAE920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74B0C1B21F59570D00DAE920 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -125,7 +127,8 @@
 		74B0C1A31F5952AA00DAE920 /* SpindaUITests */ = {
 			isa = PBXGroup;
 			children = (
-				74B0C1A41F5952AA00DAE920 /* SpindaUITests.swift */,
+				74B0C1A41F5952AA00DAE920 /* SpindaVoteButtonsUITests.swift */,
+				74839A071F5BB7F300489965 /* SpindaCreatePostsUITests.swift */,
 				74B0C1A61F5952AA00DAE920 /* Info.plist */,
 			);
 			path = SpindaUITests;
@@ -281,7 +284,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74B0C1A51F5952AA00DAE920 /* SpindaUITests.swift in Sources */,
+				74839A081F5BB7F300489965 /* SpindaCreatePostsUITests.swift in Sources */,
+				74B0C1A51F5952AA00DAE920 /* SpindaVoteButtonsUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
