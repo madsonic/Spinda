@@ -9,6 +9,8 @@
 import XCTest
 
 class SpindaVoteButtonsUITests: XCTestCase {
+    let upvoteButtonIdentifier = "upvoteButton"
+    let downvoteButtonIdentifier = "downvoteButton"
         
     override func setUp() {
         super.setUp()
@@ -31,7 +33,7 @@ class SpindaVoteButtonsUITests: XCTestCase {
     
     func testDownvotesButtonByTappingTwiceItShouldIncreaseByN() {
         let app = XCUIApplication()
-        let downvoteButton = app.tables.cells.element(boundBy: 0).buttons["downvote button"]
+        let downvoteButton = app.tables.cells.element(boundBy: 0).buttons[downvoteButtonIdentifier]
         let tapCount = 2
         for _ in 0..<tapCount {
             downvoteButton.tap()
@@ -42,14 +44,14 @@ class SpindaVoteButtonsUITests: XCTestCase {
 
     func testDownvotesButtonByDoingNothingItShouldNotChange() {
         let app = XCUIApplication()
-        let downvoteButton = app.tables.cells.element(boundBy: 0).buttons["downvote button"]
+        let downvoteButton = app.tables.cells.element(boundBy: 0).buttons[downvoteButtonIdentifier]
 
         XCTAssertEqual(Int(downvoteButton.label), 0, "Downvote count changed")
     }
 
     func testUpvotesButtonByTappingTwiceItShouldIncreaseByN() {
         let app = XCUIApplication()
-        let upvoteButton = app.tables.cells.element(boundBy: 0).buttons["upvote button"]
+        let upvoteButton = app.tables.cells.element(boundBy: 0).buttons[upvoteButtonIdentifier]
         let tapCount = 2
         for _ in 0..<tapCount {
             upvoteButton.tap()
@@ -60,7 +62,7 @@ class SpindaVoteButtonsUITests: XCTestCase {
 
     func testUpvotesButtonByDoingNothingItShouldNotChange() {
         let app = XCUIApplication()
-        let upvoteButton = app.tables.cells.element(boundBy: 0).buttons["upvote button"]
+        let upvoteButton = app.tables.cells.element(boundBy: 0).buttons[upvoteButtonIdentifier]
 
         XCTAssertEqual(Int(upvoteButton.label), 0, "Upvote count changed")
     }
@@ -71,7 +73,7 @@ class SpindaVoteButtonsUITests: XCTestCase {
 
         let postOne = app.tables.cells.element(boundBy: 0)
         let postTwo = app.tables.cells.element(boundBy: 1)
-        postTwo.buttons["upvote button"].tap()
+        postTwo.buttons[upvoteButtonIdentifier].tap()
         let newPostOne = app.tables.cells.element(boundBy: 0)
         let newPostTwo = app.tables.cells.element(boundBy: 1)
 
@@ -84,7 +86,7 @@ class SpindaVoteButtonsUITests: XCTestCase {
         // TODO: find some way to add in stub post
 
         let postOne = app.tables.cells.element(boundBy: 0)
-        postOne.buttons["upvote button"].tap()
+        postOne.buttons[upvoteButtonIdentifier].tap()
         let newPostOne = app.tables.cells.element(boundBy: 0)
 
         XCTAssertEqual(postOne.label, newPostOne.label, "Post one should remain highest ranked")
@@ -96,8 +98,8 @@ class SpindaVoteButtonsUITests: XCTestCase {
 
         let postOne = app.tables.cells.element(boundBy: 0)
         let postTwo = app.tables.cells.element(boundBy: 1)
-        postOne.buttons["upvote button"].tap()
-        postTwo.buttons["upvote button"].tap()
+        postOne.buttons[upvoteButtonIdentifier].tap()
+        postTwo.buttons[upvoteButtonIdentifier].tap()
         let newPostOne = app.tables.cells.element(boundBy: 0)
         let newPostTwo = app.tables.cells.element(boundBy: 1)
 

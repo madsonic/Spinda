@@ -43,7 +43,7 @@
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rKq-YT-Cmv">
                                                             <rect key="frame" x="0.0" y="0.0" width="187.5" height="50"/>
-                                                            <accessibility key="accessibilityConfiguration" identifier="upvote button"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="upvoteButton"/>
                                                             <state key="normal" title="0">
                                                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
@@ -53,7 +53,7 @@
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dZx-NQ-SrE">
                                                             <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
-                                                            <accessibility key="accessibilityConfiguration" identifier="downvote button"/>
+                                                            <accessibility key="accessibilityConfiguration" identifier="downvoteButton"/>
                                                             <state key="normal" title="0">
                                                                 <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                                             </state>
