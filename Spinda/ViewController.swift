@@ -96,7 +96,7 @@ class ViewController: UIViewController {
 
     @IBAction func downvote(_ sender: UIButton) {
         posts[sender.tag].changeDownvoteCount()
-        sender.setTitle(String(posts[sender.tag].upvotes), for: .normal)
+        sender.setTitle(String(posts[sender.tag].downvotes), for: .normal)
     }
 
     // MARK:- Private methods
