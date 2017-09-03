@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let initialModalXPosition: CGFloat = -500
     let finalModalXPosition: CGFloat = 0
     let maxCharCount = 100
+    let maxPostsDisplayed = 20
 
     @IBOutlet weak var postTableView: UITableView!
     @IBOutlet weak var modalXConstraint: NSLayoutConstraint!
@@ -40,13 +41,13 @@ class ViewController: UIViewController {
         setupCreatePostModal()
     }
 
+    //MARK:- Actions
     @IBAction func showCreatePostModal(_ sender: UIBarButtonItem) {
         modalXConstraint.constant = finalModalXPosition
 
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
         }
-
     }
 
     @IBAction func createPost(_ sender: UIButton) {
@@ -82,6 +83,7 @@ class ViewController: UIViewController {
         sender.setTitle(String(posts[sender.tag].upvotes), for: .normal)
     }
 
+    // MARK:- Private methods
     private func closeCreatePostModal() {
         modalXConstraint.constant = initialModalXPosition
 
@@ -97,7 +99,7 @@ class ViewController: UIViewController {
 
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return min(maxPostsDisplayed, posts.count)
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -111,10 +113,6 @@ extension ViewController: UITableViewDataSource {
 
         return cell
     }
-}
-
-extension ViewController: UITableViewDelegate {
-
 }
 
 // MARK:- TextViewDelegate
