@@ -21,6 +21,7 @@ class SpindaUITests: XCTestCase {
         XCUIApplication().launch()
 
         // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+
     }
     
     override func tearDown() {
@@ -28,9 +29,39 @@ class SpindaUITests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testDownvotesButtonByTappingTwiceItShouldIncreaseByN() {
+        let app = XCUIApplication()
+        let downvoteButton = app.tables.cells.element(boundBy: 0).buttons["downvote button"]
+        let tapCount = 2
+        for _ in 0..<tapCount {
+            downvoteButton.tap()
+        }
+
+        XCTAssertEqual(Int(downvoteButton.label), tapCount, "Downvote count did not increase by \(tapCount)")
     }
-    
+
+    func testDownvotesButtonByDoingNothingItShouldNotChange() {
+        let app = XCUIApplication()
+        let downvoteButton = app.tables.cells.element(boundBy: 0).buttons["downvote button"]
+
+        XCTAssertEqual(Int(downvoteButton.label), 0, "Downvote count changed")
+    }
+
+    func testUpvotesButtonByTappingTwiceItShouldIncreaseByN() {
+        let app = XCUIApplication()
+        let upvoteButton = app.tables.cells.element(boundBy: 0).buttons["upvote button"]
+        let tapCount = 2
+        for _ in 0..<tapCount {
+            upvoteButton.tap()
+        }
+
+        XCTAssertEqual(Int(upvoteButton.label), tapCount, "Upvote count did not increase by \(tapCount)")
+    }
+
+    func testUpvotesButtonByDoingNothingItShouldNotChange() {
+        let app = XCUIApplication()
+        let upvoteButton = app.tables.cells.element(boundBy: 0).buttons["upvote button"]
+
+        XCTAssertEqual(Int(upvoteButton.label), 0, "Upvote count changed")
+    }
 }
