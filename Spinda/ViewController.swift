@@ -39,6 +39,7 @@ class ViewController: UIViewController {
         posts.append(post4)
 
         setupCreatePostModal()
+        setupNavBar()
     }
 
     //MARK:- Actions
@@ -110,6 +111,10 @@ class ViewController: UIViewController {
 
     private func setupCreatePostModal() {
         createPostModalView.layer.cornerRadius = 10
+    }
+
+    private func setupNavBar() {
+        navigationItem.rightBarButtonItem?.accessibilityIdentifier = "createPostButton"
     }
 }
 
