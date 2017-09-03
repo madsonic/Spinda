@@ -11,6 +11,13 @@ import XCTest
 class SpindaCreatePostsUITests: XCTestCase {
     let createPostButtonIdentifer = "createPostButton"
     let createPostModalIdentifer = "createPostModal"
+    let topicViewIdentifer = "topicView"
+    let confirmCreatePostButtonIdentifer = "confirmCreatePostButton"
+    let cancelCreatePostButtonIdentifer = "cancelCreatePostButton"
+
+    // Limit is 255
+    let topic255Long = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quisa"
+    let topic256Long = "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quisaw"
         
     override func setUp() {
         super.setUp()
@@ -35,12 +42,72 @@ class SpindaCreatePostsUITests: XCTestCase {
     }
 
     func testCreatePostModalItShouldBeShownOnAdd() {
-        tapAddButton()
+        tapCreatePostButton()
         let modal = XCUIApplication().otherElements[createPostModalIdentifer]
 
         XCTAssertTrue(wait(for: modal, condition: "isHittable") == .completed, "Create post modal should show on create post")
     }
 
+    func testCreatePostItShouldAddNewPost() {
+        addPost()
+        let newPost = XCUIApplication().tables.cells.element(boundBy: 0)
+
+        XCTAssertTrue(newPost.exists, "Post not created")
+    }
+
+    func testTextViewTextAfterCreatePostItShouldBeEmpty() {
+        addPost()
+        let textView = XCUIApplication().otherElements[createPostModalIdentifer].textViews[topicViewIdentifer]
+
+        XCTAssertEqual(textView.value as! String, "", "Text view not cleared after creating post")
+    }
+
+    func testTextViewTextAfterCancelItShouldBeEmpty() {
+        tapCreatePostButton()
+        writePost(topic: "random topic string")
+        let modal = XCUIApplication().otherElements[createPostModalIdentifer]
+        modal.buttons[cancelCreatePostButtonIdentifer].tap()
+
+        let textView = modal.textViews[topicViewIdentifer]
+        XCTAssertEqual(textView.value as! String, "", "Text view not cleared after creating post")
+    }
+
+    func testCreatePostModalVisiblityAfterCreateItShouldBeHidden() {
+        addPost()
+        let modal = XCUIApplication().otherElements[createPostModalIdentifer]
+
+        XCTAssertTrue(!modal.isHittable, "Create post modal should be hidden after create")
+    }
+
+    func testCreatePostModalVisiblityAfterCancelItShouldBeHidden() {
+        cancelPost()
+        let modal = XCUIApplication().otherElements[createPostModalIdentifer]
+
+        XCTAssertTrue(!modal.isHittable, "Create post modal should be hidden after cancel")
+    }
+
+    func testTopicLengthUnderLimitItShouldBeCreated() {
+        tapCreatePostButton()
+        addPost(topic: topic255Long)
+
+        let modal = XCUIApplication().otherElements[createPostModalIdentifer]
+
+        guard wait(for: modal, condition: "isHittable", toBe: false) == .completed else {
+            XCTFail()
+            return
+        }
+
+        let newPost = XCUIApplication().tables.cells.element(boundBy: 0)
+        XCTAssertTrue(newPost.exists, "Post with topic under character limit not created")
+    }
+
+    func testTopicLengthOverLimitItShouldNotBeCreated() {
+        tapCreatePostButton()
+        addPost(topic: topic256Long)
+        let newPost = XCUIApplication().tables.cells.element(boundBy: 0)
+
+        XCTAssertTrue(!newPost.exists, "Post with topic over character limit created")
+    }
 
     /// Wait for some duration for element to meet given condition
     /// Helpful in async testing e.g. wait for ui element animation to complete before proceeding
@@ -56,9 +123,45 @@ class SpindaCreatePostsUITests: XCTestCase {
         return XCTWaiter().wait(for: [expectation], timeout: timeout)
     }
 
-    private func tapAddButton() {
+    private func tapCreatePostButton() {
         let app = XCUIApplication()
         let addButton = app.navigationBars.buttons[createPostButtonIdentifer]
         addButton.tap()
+    }
+
+    private func addPost(topic: String = "random topic string") {
+        tapCreatePostButton()
+        writePost(topic: topic)
+        let modal = XCUIApplication().otherElements[createPostModalIdentifer]
+        modal.buttons[confirmCreatePostButtonIdentifer].tap()
+    }
+
+    private func cancelPost() {
+        tapCreatePostButton()
+        let app = XCUIApplication()
+        let modal = app.otherElements[createPostModalIdentifer]
+        let result = wait(for: modal, condition: "isHittable")
+
+        guard result == .completed else {
+            XCTFail()
+            return
+        }
+
+        modal.buttons[cancelCreatePostButtonIdentifer].tap()
+    }
+
+    private func writePost(topic: String) {
+        let app = XCUIApplication()
+        let modal = app.otherElements[createPostModalIdentifer]
+        let result = wait(for: modal, condition: "isHittable")
+
+        guard result == .completed else {
+            XCTFail()
+            return
+        }
+
+        let textView = modal.textViews[topicViewIdentifer]
+        textView.tap()
+        textView.typeText(topic)
     }
 }
