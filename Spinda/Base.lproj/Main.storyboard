@@ -182,6 +182,9 @@
                     </view>
                     <navigationItem key="navigationItem" title="Spinda" id="IF3-1w-kUO">
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="2s6-6f-jcI">
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="accessibilityIdentifer" value="createPostButton"/>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="showCreatePostModal:" destination="BYZ-38-t0r" id="sdP-hV-6b2"/>
                             </connections>
