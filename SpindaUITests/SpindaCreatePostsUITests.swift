@@ -9,6 +9,8 @@
 import XCTest
 
 class SpindaCreatePostsUITests: XCTestCase {
+    let createPostButtonIdentifer = "createPostButton"
+    let createPostModalIdentifer = "createPostModal"
         
     override func setUp() {
         super.setUp()
@@ -28,6 +30,20 @@ class SpindaCreatePostsUITests: XCTestCase {
         super.tearDown()
     }
     
+    func testCreatePostModalItShouldBeHiddenOnStart() {
+        XCTAssertTrue(!XCUIApplication().otherElements["Create Post Modal"].isHittable, "Create post modal should be hidden on start")
+    }
+
+    func testCreatePostModalItShouldBeShownOnAdd() {
+        let app = XCUIApplication()
+        let addButton = app.navigationBars.buttons[createPostButtonIdentifer]
+        addButton.tap()
+
+        let modal = app.otherElements[createPostModalIdentifer]
+
+        XCTAssertTrue(wait(for: modal, condition: "isHittable"), "Create post modal should show on create post")
+    }
+
 
     /// Wait for some duration for element to meet given condition
     /// Helpful in async testing e.g. wait for ui element animation to complete before proceeding
