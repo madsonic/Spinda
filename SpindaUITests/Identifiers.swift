@@ -7,11 +7,11 @@
 //
 
 enum Identifier: String {
-    case createPostButtonIdentifer = "createPostButton",
-    createPostModalIdentifer = "createPostModal",
-    topicViewIdentifer = "topicView",
-    confirmCreatePostButtonIdentifer = "confirmCreatePostButton",
-    cancelCreatePostButtonIdentifer = "cancelCreatePostButton",
-    upvoteButtonIdentifier = "upvoteButton",
-    downvoteButtonIdentifier = "downvoteButton"
+    case createPostButton = "createPostButton",
+    createPostModal = "createPostModal",
+    topicView = "topicView",
+    confirmCreatePostButton = "confirmCreatePostButton",
+    cancelCreatePostButton = "cancelCreatePostButton",
+    upvoteButton = "upvoteButton",
+    downvoteButton = "downvoteButton"
 }

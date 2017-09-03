@@ -8,29 +8,59 @@
 
 import XCTest
 
-class UITestsHelpers: XCTestCase {
-        
-    override func setUp() {
-        super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-        
-        // In UI tests it is usually best to stop immediately when a failure occurs.
-        continueAfterFailure = false
-        // UI tests must launch the application that they test. Doing this in setup will make sure it happens for each test method.
-        XCUIApplication().launch()
+class UITestsHelpers {
+    open class func tapCreatePostButton() {
+        let app = XCUIApplication()
+        let addButton = app.navigationBars.buttons[Identifier.createPostButton.rawValue]
+        addButton.tap()
+    }
 
-        // In UI tests it’s important to set the initial state - such as interface orientation - required for your tests before they run. The setUp method is a good place to do this.
+    open class func addPost(topic: String = "random topic string") {
+        tapCreatePostButton()
+        writePost(topic: topic)
+        let modal = XCUIApplication().otherElements[Identifier.createPostModal.rawValue]
+        modal.buttons[Identifier.confirmCreatePostButton.rawValue].tap()
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+
+    open class func cancelPost() {
+        tapCreatePostButton()
+        let app = XCUIApplication()
+        let modal = app.otherElements[Identifier.createPostModal.rawValue]
+        let result = wait(for: modal, condition: "isHittable")
+
+        guard result == .completed else {
+            XCTFail()
+            return
+        }
+
+        modal.buttons[Identifier.cancelCreatePostButton.rawValue].tap()
     }
-    
-    func testExample() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+
+    open class func writePost(topic: String) {
+        let app = XCUIApplication()
+        let modal = app.otherElements[Identifier.createPostModal.rawValue]
+        let result = wait(for: modal, condition: "isHittable")
+
+        guard result == .completed else {
+            XCTFail()
+            return
+        }
+
+        let textView = modal.textViews[Identifier.topicView.rawValue]
+        textView.tap()
+        textView.typeText(topic)
     }
-    
+    /// Wait for some duration for element to meet given condition
+    /// Helpful in async testing e.g. wait for ui element animation to complete before proceeding
+    /// - Parameters:
+    ///   - element: element to wait for
+    ///   - condition: condition element holds. Possible values include `isHittable`, `exists`
+    ///   - expectation: expectation of condition. Defaults to true
+    ///   - timeout: time to wait. Defaults to 1
+    /// - Returns: true if `Result` is `.completed`
+    open class func wait(for element: XCUIElement, condition: String,
+                      toBe expectation: Bool = true, forSeconds timeout: TimeInterval = 1) -> XCTWaiter.Result {
+        let expectation = XCTKVOExpectation(keyPath: condition, object: element, expectedValue: expectation)
+        return XCTWaiter().wait(for: [expectation], timeout: timeout)
+    }
 }
