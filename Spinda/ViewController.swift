@@ -27,7 +27,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
 
         guard let post1 = Post(topic: "topic 1"),
-            let post2 = Post(topic: "topic 2 g0bq9fCKfhYbeAAIzXubvZnemCgsn6Xjs3tPiVtmpA1LnDeJUBTJFE3xE0nruhUHILoPIlaYm4cXyIq2O2jEjcgqPojL7wy"),
+            let post2 = Post(topic: "topic 2"),
             let post3 = Post(topic: "topic 3 g0bq9fCKfhYb"),
             let post4 = Post(topic: "topic 4 g0bq9fCKfhYbg0bq9fCKfhYbg0bq9fCKfhYbg0bq9fCKfhYbg0bq9fCKfhYb") else {
             return
