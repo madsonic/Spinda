@@ -76,6 +76,22 @@ class ViewController: UIViewController {
     @IBAction func upvote(_ sender: UIButton) {
         posts[sender.tag].changeUpvoteCount()
         sender.setTitle(String(posts[sender.tag].upvotes), for: .normal)
+
+        // Float post 1 position higher if necessary
+        let postRank = sender.tag
+        guard postRank != 0 else {
+            return
+        }
+
+        let postUpvotes = posts[postRank].upvotes
+        let hotterPostUpvotes = posts[postRank - 1].upvotes
+
+        if postUpvotes > hotterPostUpvotes {
+            posts.swapAt(postRank, postRank - 1)
+            let indexPaths = [IndexPath(row: postRank, section: 0), IndexPath(row: postRank - 1, section: 0)]
+            postTableView.reloadRows(at: indexPaths, with: .fade)
+        }
+
     }
 
     @IBAction func downvote(_ sender: UIButton) {
