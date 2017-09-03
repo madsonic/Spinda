@@ -4,7 +4,6 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13147.4"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
@@ -158,6 +157,7 @@
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration" identifier="Create Post Modal"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="FHi-Of-KtR"/>
                                     <constraint firstAttribute="trailing" secondItem="IKb-on-y3z" secondAttribute="trailing" constant="10" id="JJr-Ht-Vj5"/>
